@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Программа тренировок</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+  }
+  h2 {
+    text-align: center;
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  div.day {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  h3 {
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  h4 {
+    color: #000;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 10px;
+    color: #000;
+    transition: color 0.3s ease;
+  }
+  .menu {
+    background-color: #333;
+    padding: 10px;
+    text-align: right;
+  }
+  .menu label {
+    color: #fff;
+    margin-right: 10px;
+  }
+  .theme-slider {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .theme-slider input {
+    display: none;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  input:checked + .slider {
+    background-color: #007bff;
+  }
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  .dark-theme body {
+    background-color: #222;
+    color: #fff;
+  }
+  .dark-theme div.day {
+    background-color: #444;
+  }
+  .dark-theme h4, .dark-theme li {
+    color: #fff;
+  }
+  .dark-theme h2, .dark-theme h3 {
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="menu">
+  <label for="theme-toggle">Светлая</label>
+  <label class="theme-slider">
+    <input type="checkbox" id="theme-toggle" onclick="toggleTheme()">
+    <span class="slider"></span>
+  </label>
+  <label for="theme-toggle">Темная</label>
+</div>
+
+<h2 style="color: #007bff;">Программа тренировок</h2>
+
+<div class="day">
+  <h3>Вторник</h3>
+  <h4>Грудные</h4>
+  <ul>
+    <li>Жим вертикальная скамья - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Жим в хамере сидя - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Бабочка локтевая - 3 по 12 (увеличивать массу после каждого)</li>
+  </ul>
+  <h4>Трицепс</h4>
+  <ul>
+    <li>Канатка на кроссовере - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Разгибание рук в блоке с прямой рукоядью - 3 по 12 (смотреть, как жить вообще)</li>
+    <li>Брусья на этой залупе - 3 по 12 (уменьшать вес)</li>
+  </ul>
+</div>
+
+<div class="day">
+  <h3>Четверг</h3>
+  <h4>Спина</h4>
+  <ul>
+    <li>Тяга верхнего блока - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Тяга нижнего блока - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Горизонтальная тяга - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Подтягивания - 3 по 12</li>
+  </ul>
+  <h4>Бицепс</h4>
+  <ul>
+    <li>Сгибание в споте - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Нижний блок - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Сгибание рук с гантелями молотки - 3 по 12</li>
+  </ul>
+</div>
+
+<div class="day">
+  <h3>Суббота</h3>
+  <h4>Ноги</h4>
+  <ul>
+    <li>Разгибание ног сидя - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Сгибание ног лежа - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Жим ногами - 3 по 12</li>
+    <li>Приседания с нагрузкой - 3 по 12</li>
+  </ul>
+  <h4>Плечи</h4>
+  <ul>
+    <li>Бабочка - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Тяга к груди с низу на кроссовере - 3 по 12 (увеличивать массу после каждого)</li>
+    <li>Отведение гантелей в сторону - 3 по 12</li>
+  </ul>
+</div>
+
+<script>
+function toggleTheme() {
+  var body = document.body;
+  var listItems = document.querySelectorAll('li');
+  var days = document.querySelectorAll('h3');
+  var programHeader = document.querySelector('h2');
+  body.classList.toggle('dark-theme');
+  listItems.forEach(item => {
+    item.style.color = body.classList.contains('dark-theme') ? '#fff' : 'black';
+  });
+  days.forEach(day => {
+    day.style.color = body.classList.contains('dark-theme') ? '#007bff' : '#007bff';
+  });
+  programHeader.style.color = '#007bff';
+}
+</script>
+
+</body>
+</html>
